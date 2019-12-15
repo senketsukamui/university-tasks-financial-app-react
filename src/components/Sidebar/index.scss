@@ -1,0 +1,11 @@
+.sidebar {
+    position: fixed;
+    width: 230px;
+    background-color: #464159;
+    color: white;
+    height: 100%;
+    &__content{
+        font-size: 1.5rem;
+        padding: 18px 18px;
+    }
+}

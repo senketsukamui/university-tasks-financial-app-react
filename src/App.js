@@ -1,10 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import NavBar from "./components/Navbar/"
+import Sidebar from "./components/Sidebar"
+import './App.scss';
 
 function App() {
   return (
-    <div></div>
+    <div className = "main">
+    <Sidebar />
+    <div className = "main-content"><NavBar /></div>
+    </div>
   );
 }
 
