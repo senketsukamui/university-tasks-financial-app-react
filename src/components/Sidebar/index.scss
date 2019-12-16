@@ -4,8 +4,13 @@
     background-color: #464159;
     color: white;
     height: 100%;
-    &__content{
+    &__title{
         font-size: 1.5rem;
         padding: 18px 18px;
+    }
+    &__link {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 1.2rem;
     }
 }

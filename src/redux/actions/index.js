@@ -1,3 +1,4 @@
 export default {
-  
+  ADD_CATEGORY: "ADD_CATEGORY",
+  ADD_FINANCE: "ADD_FINANCE",
 }

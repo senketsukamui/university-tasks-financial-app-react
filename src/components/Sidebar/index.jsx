@@ -5,7 +5,9 @@ const Sidebar = () => {
     return (
         <div className = "sidebar">
             <div className="sidebar__content">
-                <div>Finance Manager</div>
+                <div className = "sidebar__title">Finance Manager</div>
+                <div className="sidebar__link">Main</div>
+
             </div>
         </div>
     )
