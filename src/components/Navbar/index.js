@@ -2,7 +2,7 @@ import React from "react";
 import "./index.scss";
 import Dropdown from "react-bootstrap/Dropdown";
 const NavBar = () => {
-  onFinanceAdd = evt => {};
+  let onFinanceAdd = evt => {};
 
   return (
     <nav className="navbar">

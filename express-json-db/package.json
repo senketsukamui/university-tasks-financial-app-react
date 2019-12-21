@@ -1,0 +1,14 @@
+{
+  "name": "express-json-db",
+  "version": "1.0.0",
+  "description": "Local JSON database for financial app",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "author": "Senketsu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
