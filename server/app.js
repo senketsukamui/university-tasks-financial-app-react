@@ -1,10 +1,9 @@
-const path = require("path");
 const express = require("express");
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
-const adapter = new FileSync(path.resolve(__dirname, "db.json"));
+const adapter = new FileSync("db.json");
 const db = low(adapter);
 
 const app = express();
