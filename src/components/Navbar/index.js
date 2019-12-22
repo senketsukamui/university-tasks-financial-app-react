@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.scss";
 import Dropdown from "react-bootstrap/Dropdown";
+import {Button} from 'reactstrap';
 const NavBar = () => {
   let onFinanceAdd = evt => {};
 
@@ -12,7 +13,7 @@ const NavBar = () => {
           <span className="ml-1">Create New</span>
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">Finance</Dropdown.Item>
+          <Dropdown.Item href="#/action-1"><Button></Button></Dropdown.Item>
           <Dropdown.Item href="#/action-2">Category</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
