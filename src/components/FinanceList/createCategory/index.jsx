@@ -2,11 +2,12 @@ import React from "react";
 import "./index.scss";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-const createFinance = props => {
+const createCategory = props => {
+  console.log("Check");
   const { isOpen, toggle } = props
   return (
     <Modal isOpen={isOpen} toggle={toggle}>
-      <ModalHeader toggle={toggle}>Finance create form</ModalHeader>
+      <ModalHeader toggle={toggle}>Modal title</ModalHeader>
       <ModalBody>
         
       </ModalBody>
@@ -21,4 +22,5 @@ const createFinance = props => {
     </Modal>
   );
 };
-export default createFinance;
+
+export default createCategory;
