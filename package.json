@@ -1,47 +1,23 @@
 {
-  "name": "local-hack-day-react",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@mdi/font": "^4.7.95",
-    "@mdi/js": "^4.7.95",
-    "@mdi/react": "^1.2.1",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "body-parser": "^1.19.0",
-    "bootstrap": "^4.4.1",
-    "lowdb": "^1.0.0",
-    "node-sass": "^4.13.0",
-    "react": "^16.12.0",
-    "react-bootstrap": "^1.0.0-beta.16",
-    "react-dom": "^16.12.0",
-    "react-redux": "^7.1.3",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0",
-    "reactstrap": "^8.2.0",
-    "recharts": "^2.0.0-beta.1",
-    "redux": "^4.0.4"
-  },
+  "name": "financial-app-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently --kill-others \"node client/scripts/start.js\" \"node server/app.js\""
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/senketsukamui/university-tasks-financial-app-react.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "Senketsu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/senketsukamui/university-tasks-financial-app-react/issues"
+  },
+  "homepage": "https://github.com/senketsukamui/university-tasks-financial-app-react#readme",
+  "dependencies": {
+    "concurrently": "^5.0.2"
   }
 }

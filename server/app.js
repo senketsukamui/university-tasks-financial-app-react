@@ -20,38 +20,38 @@ db.defaults({
 }).write();
 
 app.post("/api/post_category", jsonParser, (req, res) => {
-  const {
-    title
-  } = req.body;
+  const { title } = req.body;
 
-  const prefix = ['data', title].join('.')
-  const alreadyExist = Object.keys(db.getState().data).find(key => key === title)
+  const prefix = ["data", title].join(".");
+  const alreadyExist = Object.keys(db.getState().data).find(
+    key => key === title
+  );
   if (alreadyExist) {
     res.status(403).json({});
   } else {
-    db.set(prefix, []).write()
+    db.set(prefix, []).write();
   }
 
   res.status(200).json({});
 });
 
 app.post("/api/post_finance", (req, res) => {
-  const {
-    title,
-    price,
-    category
-  } = req.body;
-  const prefix = ['data', category].join('.');
-  const categoryExist = Object.keys(db.getState().data).find(key => key === category);
+  const { title, price, category } = req.body;
+  const prefix = ["data", category].join(".");
+  const categoryExist = Object.keys(db.getState().data).find(
+    key => key === category
+  );
   if (categoryExist) {
-    db.get(prefix).push({
-      title: title,
-      price: price
-    }).write();
+    db.get(prefix)
+      .push({
+        title: title,
+        price: price
+      })
+      .write();
     res.status(200).json({});
   }
-})
+});
 
-app.listen(3000, () => {
+app.listen(8000, () => {
   console.log("Example app listening on port 3000!");
 });
