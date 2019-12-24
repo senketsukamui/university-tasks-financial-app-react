@@ -1,5 +1,5 @@
 npm i -g pm2<br/>
-git clone <repo><br/>
+git clone <repo> <br/>
 
 cd client<br/>
 npm i<br/>
