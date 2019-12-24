@@ -1,12 +1,13 @@
-git clone <repo>
+npm i -g pm2<br/>
+git clone <repo><br/>
 
-cd client
-npm i
-pm2 start node_modules/react-scripts/scripts/start.js --name "CLIENT"
+cd client<br/>
+npm i<br/>
+pm2 start node_modules/react-scripts/scripts/start.js --name "CLIENT"<br/>
 
-cd ../server
-npm i
-pm2 start ./ecosystem.config.js
+cd ../server<br/>
+npm i<br/>
+pm2 start ./ecosystem.config.js<br/>
 
 # check status
 
