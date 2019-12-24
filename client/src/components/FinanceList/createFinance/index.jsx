@@ -2,14 +2,12 @@ import React from "react";
 import "./index.scss";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-const createFinance = props => {
-  const { isOpen, toggle } = props
+const CreateFinance = props => {
+  const { isOpen, toggle } = props;
   return (
     <Modal isOpen={isOpen} toggle={toggle}>
       <ModalHeader toggle={toggle}>Finance create form</ModalHeader>
-      <ModalBody>
-        
-      </ModalBody>
+      <ModalBody></ModalBody>
       <ModalFooter>
         <Button color="primary" onClick={toggle}>
           Do Something
@@ -21,4 +19,4 @@ const createFinance = props => {
     </Modal>
   );
 };
-export default createFinance;
+export default CreateFinance;

@@ -1,19 +1,64 @@
 import React from "react";
 import "./index.scss";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-
-const createCategory = props => {
-  console.log("Check");
-  const { isOpen, toggle } = props
+import { connect } from "react-redux";
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Form,
+  FormGroup,
+  Label,
+  Input
+} from "reactstrap";
+import { postRequest } from "../../../api";
+import { AddCategory } from "../../../redux/actions/category.js";
+const CreateCategory = props => {
+  const { isOpen, toggle } = props;
+  const [formCategory, setFormCategory] = React.useState("");
+  const onFormChange = event => {
+    setFormCategory(event.target.value);
+  };
+  const onCreateClick = event => {
+    console.log(formCategory);
+    console.log(
+      JSON.stringify({
+        title: formCategory
+      })
+    );
+    postRequest(
+      "http://localhost:8000/api/post_category",
+      {
+        title: formCategory
+      },
+      {
+        "Content-Type": "application/json"
+      }
+    ).;
+  };
   return (
     <Modal isOpen={isOpen} toggle={toggle}>
-      <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+      <ModalHeader toggle={toggle}>Create category form</ModalHeader>
       <ModalBody>
-        
+        <Form>
+          <FormGroup>
+            <Label>Category Name</Label>
+            <Input
+              placeholder="category example"
+              onChange={onFormChange}
+              required
+            />
+          </FormGroup>
+        </Form>
       </ModalBody>
       <ModalFooter>
-        <Button color="primary" onClick={toggle}>
-          Do Something
+        <Button
+          color="primary"
+          disabled={!formCategory}
+          onClick={onCreateClick}
+        >
+          Create
         </Button>{" "}
         <Button color="secondary" onClick={toggle}>
           Cancel
@@ -23,4 +68,10 @@ const createCategory = props => {
   );
 };
 
-export default createCategory;
+const mapStateToProps = store => ({});
+
+const mapDispatchToProps = () => ({
+  AddCategory
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateCategory);
