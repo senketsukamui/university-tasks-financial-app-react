@@ -35,7 +35,7 @@ const CreateCategory = props => {
       {
         "Content-Type": "application/json"
       }
-    ).;
+    );
   };
   return (
     <Modal isOpen={isOpen} toggle={toggle}>
