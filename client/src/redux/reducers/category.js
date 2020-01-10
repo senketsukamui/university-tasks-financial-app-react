@@ -6,7 +6,12 @@ export default (state = initialState, action) => {
     case ActionTypes.ADD_CATEGORY:
       return {
         ...state,
-        category: action.category
+        [action.category]: []
+      };
+    case ActionTypes.SET_CATEGORIES:
+      return {
+        ...state,
+        categories: action.newCategories
       };
     default:
       return state;

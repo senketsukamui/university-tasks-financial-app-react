@@ -21,12 +21,6 @@ const CreateCategory = props => {
     setFormCategory(event.target.value);
   };
   const onCreateClick = event => {
-    console.log(formCategory);
-    console.log(
-      JSON.stringify({
-        title: formCategory
-      })
-    );
     postRequest(
       "http://localhost:8000/api/post_category",
       {
@@ -35,7 +29,9 @@ const CreateCategory = props => {
       {
         "Content-Type": "application/json"
       }
-    );
+    ).then(res => {
+      props.AddCategory(formCategory);
+    });
   };
   return (
     <Modal isOpen={isOpen} toggle={toggle}>
@@ -70,8 +66,8 @@ const CreateCategory = props => {
 
 const mapStateToProps = store => ({});
 
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = {
   AddCategory
-});
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateCategory);

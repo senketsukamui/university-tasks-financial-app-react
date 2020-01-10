@@ -25,7 +25,10 @@ app.use(function(req, res, next) {
   for (var i = 0; i < origins.length; i++) {
     var origin = origins[i];
 
-    if (req.headers.origin.indexOf(origin) > -1) {
+    if (
+      req.headers.hasOwnProperty("origin") &&
+      req.headers.origin.indexOf(origin) > -1
+    ) {
       res.header("Access-Control-Allow-Origin", req.headers.origin);
     }
   }
@@ -69,6 +72,10 @@ app.post("/api/post_finance", (req, res) => {
       .write();
     res.status(200).json({});
   }
+});
+
+app.get("/api/get_info", (req, res) => {
+  res.json(db.getState());
 });
 
 app.listen(8000, () => {

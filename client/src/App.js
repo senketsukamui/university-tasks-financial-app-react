@@ -4,8 +4,15 @@ import NavBar from "./components/Navbar/";
 import Sidebar from "./components/Sidebar";
 import FinanceList from "./components/FinanceList";
 import "./App.scss";
+import { connect } from "react-redux";
+import { fetchCategories } from "./redux/actions/category";
 
-function App() {
+function App(props) {
+  // Onmount event
+  React.useEffect(() => {
+    props.fetchCategories();
+  }, []);
+
   return (
     <div className="main">
       <Sidebar />
@@ -17,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(null, { fetchCategories })(App);
