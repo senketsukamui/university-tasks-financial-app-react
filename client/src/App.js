@@ -8,8 +8,8 @@ import { connect } from "react-redux";
 import { fetchCategories } from "./redux/actions/category";
 
 function App(props) {
-  // Onmount event
   React.useEffect(() => {
+    console.log("mount check");
     props.fetchCategories();
   }, []);
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { AddFinance } from "../../../redux/actions/category.js";
 import "./index.scss";
 import {
   Button,
@@ -18,8 +19,17 @@ const CreateFinance = props => {
   const [formState, setFormState] = React.useState({
     title: "",
     price: "",
-    category: ""
+    category: "",
+    date: ""
   });
+  const categoriesList = Object.keys(props.categories);
+  const options = categoriesList.map(p => {
+    return <option>{p}</option>;
+  });
+  const onFormChange = field => event => {
+    setFormState({ ...formState, [field]: event.target.value });
+  };
+  console.log(formState);
   return (
     <Modal isOpen={isOpen} toggle={toggle}>
       <ModalHeader toggle={toggle}>Finance create form</ModalHeader>
@@ -27,23 +37,35 @@ const CreateFinance = props => {
         <Form>
           <FormGroup>
             <Label>Finance Title</Label>
-            <Input placeholder="title example" required />
+            <Input
+              placeholder="title example"
+              onChange={onFormChange("title")}
+              required
+            />
             <Label>Finance Price</Label>
-            <Input placeholder="price example" required />
+            <Input
+              placeholder="price example"
+              onChange={onFormChange("price")}
+              required
+            />
+            <Label for="exampleDate">Select date</Label>
+            <Input
+              type="date"
+              name="date"
+              id="exampleDate"
+              placeholder="date placeholder"
+              onChange={onFormChange("date")}
+            />
             <Label>Select Category</Label>
-            <Input type="select">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <Input type="select" onChange={onFormChange("category")}>
+              {options}
             </Input>
           </FormGroup>
         </Form>
       </ModalBody>
       <ModalFooter>
         <Button color="primary" onClick={toggle}>
-          Do Something
+          Create
         </Button>{" "}
         <Button color="secondary" onClick={toggle}>
           Cancel
@@ -52,8 +74,8 @@ const CreateFinance = props => {
     </Modal>
   );
 };
-const mapStateToProps = store => ({});
+const mapStateToProps = store => ({ categories: store.category.categories });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = { AddFinance };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateFinance);
