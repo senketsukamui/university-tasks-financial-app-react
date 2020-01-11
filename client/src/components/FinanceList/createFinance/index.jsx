@@ -13,6 +13,7 @@ import {
   Label,
   Input
 } from "reactstrap";
+import { postRequest } from "../../../api.js";
 
 const CreateFinance = props => {
   const { isOpen, toggle } = props;
@@ -22,6 +23,17 @@ const CreateFinance = props => {
     category: "",
     date: ""
   });
+  const onFinanceAdd = event => {
+    postRequest(
+      "http://localhost:8000/api/post_finance/",
+      {
+        formState
+      },
+      { "Content-Type": "application/json" }
+    ).then(res => {
+      props.AddFinance(formState);
+    });
+  };
   const categoriesList = Object.keys(props.categories);
   const options = categoriesList.map(p => {
     return <option>{p}</option>;

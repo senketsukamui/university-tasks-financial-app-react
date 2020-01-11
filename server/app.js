@@ -57,8 +57,8 @@ app.post("/api/post_category", jsonParser, (req, res) => {
   res.status(200).json({});
 });
 
-app.post("/api/post_finance", (req, res) => {
-  const { title, price, category } = req.body;
+app.post("/api/post_finance", jsonParser, (req, res) => {
+  const { title, price, date, category } = req.body;
   const prefix = ["data", category].join(".");
   const categoryExist = Object.keys(db.getState().data).find(
     key => key === category
@@ -67,11 +67,13 @@ app.post("/api/post_finance", (req, res) => {
     db.get(prefix)
       .push({
         title: title,
-        price: price
+        price: price,
+        date: date
       })
       .write();
     res.status(200).json({});
   }
+  res.status(403).json({});
 });
 
 app.get("/api/get_info", (req, res) => {
