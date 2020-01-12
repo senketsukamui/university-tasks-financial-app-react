@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import _ from "lodash";
 import { AddFinance } from "../../../redux/actions/category.js";
 import "./index.scss";
 import {
@@ -17,26 +18,38 @@ import { postRequest } from "../../../api.js";
 
 const CreateFinance = props => {
   const { isOpen, toggle } = props;
+
   const [formState, setFormState] = React.useState({
     title: "",
     price: "",
     category: "",
     date: ""
   });
+
+  const [categoriesList, setCategoriesList] = React.useState([]);
+
+  React.useEffect(() => {
+    const c = Object.keys(props.categories);
+    setCategoriesList(c);
+    setFormState({
+      ...formState,
+      category: c.length ? c[0] : ""
+    });
+  }, [props.categories]);
+
   const onFinanceAdd = event => {
     postRequest(
       "http://localhost:8000/api/post_finance/",
-      {
-        formState
-      },
+
+      formState,
       { "Content-Type": "application/json" }
     ).then(res => {
+      console.log(res);
       props.AddFinance(formState);
     });
   };
-  const categoriesList = Object.keys(props.categories);
-  const options = categoriesList.map(p => {
-    return <option>{p}</option>;
+  const options = categoriesList.map((p, i) => {
+    return <option key={i}>{p}</option>;
   });
   const onFormChange = field => event => {
     setFormState({ ...formState, [field]: event.target.value });
@@ -69,14 +82,18 @@ const CreateFinance = props => {
               onChange={onFormChange("date")}
             />
             <Label>Select Category</Label>
-            <Input type="select" onChange={onFormChange("category")}>
+            <Input
+              type="select"
+              onChange={onFormChange("category")}
+              defaultValue={categoriesList.length ? categoriesList[0] : ""}
+            >
               {options}
             </Input>
           </FormGroup>
         </Form>
       </ModalBody>
       <ModalFooter>
-        <Button color="primary" onClick={toggle}>
+        <Button color="primary" onClick={onFinanceAdd}>
           Create
         </Button>{" "}
         <Button color="secondary" onClick={toggle}>

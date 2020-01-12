@@ -18,6 +18,8 @@ export const AddCategory = category => ({
 
 export const AddFinance = (finance, category) => ({
   type: ActionTypes.ADD_FINANCE,
-  finance,
-  category
+  payload: {
+    finance,
+    category
+  }
 });

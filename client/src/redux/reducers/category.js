@@ -1,6 +1,6 @@
 import ActionTypes from "../actions";
-
-const initialState = { categories: [] };
+import _ from "lodash";
+const initialState = { categories: {} };
 export default (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.ADD_CATEGORY:
@@ -9,7 +9,6 @@ export default (state = initialState, action) => {
         categories: { ...state.categories, [action.category]: [] }
       };
     case ActionTypes.SET_CATEGORIES:
-      console.log("reducer check");
       return {
         ...state,
         categories: action.parsedData
@@ -19,9 +18,9 @@ export default (state = initialState, action) => {
         ...state,
         categories: {
           ...state.categories,
-          [action.category]: [
-            ...state.categories[action.category],
-            action.finance
+          [action.payload.category]: [
+            ..._.get(state.categories, action.payload.category, []),
+            action.payload.finance
           ]
         }
       };
