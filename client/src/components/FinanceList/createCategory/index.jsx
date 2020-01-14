@@ -31,6 +31,7 @@ const CreateCategory = props => {
       }
     ).then(res => {
       props.AddCategory(formCategory);
+      toggle();
     });
   };
   return (

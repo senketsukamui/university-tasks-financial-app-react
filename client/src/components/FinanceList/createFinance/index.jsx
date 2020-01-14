@@ -18,14 +18,13 @@ import { postRequest } from "../../../api.js";
 
 const CreateFinance = props => {
   const { isOpen, toggle } = props;
-
   const [formState, setFormState] = React.useState({
     title: "",
     price: "",
     category: "",
     date: ""
   });
-
+  console.log(formState);
   const [categoriesList, setCategoriesList] = React.useState([]);
 
   React.useEffect(() => {
@@ -44,8 +43,8 @@ const CreateFinance = props => {
       formState,
       { "Content-Type": "application/json" }
     ).then(res => {
-      console.log(res);
       props.AddFinance(formState);
+      toggle();
     });
   };
   const options = categoriesList.map((p, i) => {
@@ -54,7 +53,6 @@ const CreateFinance = props => {
   const onFormChange = field => event => {
     setFormState({ ...formState, [field]: event.target.value });
   };
-  console.log(formState);
   return (
     <Modal isOpen={isOpen} toggle={toggle}>
       <ModalHeader toggle={toggle}>Finance create form</ModalHeader>
@@ -93,7 +91,7 @@ const CreateFinance = props => {
         </Form>
       </ModalBody>
       <ModalFooter>
-        <Button color="primary" onClick={onFinanceAdd}>
+        <Button color="primary" onClick={onFinanceAdd} disabled={!formState}>
           Create
         </Button>{" "}
         <Button color="secondary" onClick={toggle}>
