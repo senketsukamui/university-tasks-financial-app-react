@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 import _ from "lodash";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
 const FinanceList = props => {
-  console.log(props.categories);
+  const dataForCharts = Object.values(props.categories).flat();
   const renderLineChart = (
-    <LineChart width={600} height={300} data={props.categories[0]}>
+    <LineChart width={600} height={300} data={dataForCharts}>
       <Line type="monotone" dataKey="price" stroke="#8884d8" />
       <CartesianGrid stroke="#ccc" />
-      <XAxis dataKey="title" />
+      <XAxis dataKey="date" />
       <YAxis />
     </LineChart>
   );
