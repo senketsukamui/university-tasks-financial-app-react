@@ -30,8 +30,34 @@
         "title": "Coffee",
         "price": "100",
         "date": "2020-01-16"
+      },
+      {
+        "title": "Pie",
+        "price": "50",
+        "date": "2020-01-14"
+      },
+      {
+        "title": "Cola",
+        "price": "30",
+        "date": "2020-01-11"
+      },
+      {
+        "title": "Sandwich",
+        "price": "150",
+        "date": "2020-01-10"
+      },
+      {
+        "title": "Snacks",
+        "price": "30",
+        "date": "2020-01-11"
       }
     ],
-    "Daily": []
+    "Daily": [
+      {
+        "title": "Clothes",
+        "price": "500",
+        "date": "2020-01-11"
+      }
+    ]
   }
 }

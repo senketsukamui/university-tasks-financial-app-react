@@ -1,8 +1,16 @@
-.finance-list{
+.finance-list {
+  background-color: #8bbabb;
+  &__wrapper {
     background-color: #8bbabb;
-    &__wrapper{
-        background-color: #8bbabb;
-        width: 100%;
-        height: 100%;
-    }
+    width: 100%;
+    height: 100%;
+  }
+  &__chart-title {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  &__pie-chart-title {
+    text-align: center;
+    font-size: 1.5rem;
+  }
 }

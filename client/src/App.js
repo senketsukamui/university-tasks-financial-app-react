@@ -19,12 +19,11 @@ function App(props) {
       <Sidebar />
       <div className="main-content">
         <NavBar />
-        {/* {!_.isEmpty(props.categories) ? (
-          <Route path="/" render={() => <FinanceList />} />
+        {!_.isEmpty(props.categories) ? (
+          <Route path="/" component={FinanceList} />
         ) : (
           <Circle />
-        )} */}
-        <Route path="/" render={() => <FinanceList />} />
+        )}
       </div>
     </div>
   );

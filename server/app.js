@@ -67,7 +67,7 @@ app.post("/api/post_finance", jsonParser, (req, res) => {
     db.get(prefix)
       .push({
         title: title,
-        price: price,
+        price: parseInt(price),
         date: date
       })
       .write();
