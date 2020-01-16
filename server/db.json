@@ -1,3 +1,37 @@
 {
-  "data": {}
+  "data": {
+    "Food": [
+      {
+        "title": "Apple",
+        "price": "25",
+        "date": "2020-01-14"
+      },
+      {
+        "title": "Banana",
+        "price": "35",
+        "date": "2020-01-15"
+      },
+      {
+        "title": "Burger",
+        "price": "50",
+        "date": "2020-01-13"
+      },
+      {
+        "title": "Water",
+        "price": "10",
+        "date": "2020-01-14"
+      },
+      {
+        "title": "Chocolate",
+        "price": "40",
+        "date": "2020-01-12"
+      },
+      {
+        "title": "Coffee",
+        "price": "100",
+        "date": "2020-01-16"
+      }
+    ],
+    "Daily": []
+  }
 }
