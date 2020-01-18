@@ -13,4 +13,13 @@
     text-align: center;
     font-size: 1.5rem;
   }
+  &__pie-chart {
+    margin: 0 auto;
+  }
+  &__pie-chart-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
 }

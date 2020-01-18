@@ -136,10 +136,12 @@ const FinanceList = props => {
         Your expenses for the last week
       </div>
       <div className="finance-list">{renderLineChart}</div>
-      <div className="finance-list__pie-chart-title">
-        Your greatest expenses
+      <div className="finance-list__pie-chart-wrapper">
+        <div className="finance-list__pie-chart-title">
+          Your greatest expenses
+        </div>
+        <div className="finance-list__pie-chart">{renderPieChart}</div>
       </div>
-      <div className="finance-list__pie-chart">{renderPieChart}</div>
     </div>
   );
 };
