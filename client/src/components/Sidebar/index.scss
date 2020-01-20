@@ -1,16 +1,47 @@
 .sidebar {
-    position: fixed;
-    width: 230px;
-    background-color: #464159;
-    color: white;
-    height: 100%;
-    &__title{
-        font-size: 1.5rem;
-        padding: 18px 18px;
+  position: fixed;
+  width: 230px;
+  background-color: #6b77a6;
+  color: white;
+  height: 100%;
+
+  &__title {
+    font-size: 1.5rem;
+    padding: 18px 18px;
+  }
+
+  &__section {
+    margin-left: 1.5rem;
+    margin-top: 2rem;
+
+    &__title {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
     }
+
     &__link {
-        margin-top: 2rem;
-        text-align: center;
-        font-size: 1.2rem;
+      margin-top: 0.25rem;
+
+      &__first {
+        margin-top: 0.5rem;
+      }
+
+      a {
+        font-size: 1.1rem;
+        color: #fff;
+        transition: 0.2s;
+      }
+
+      span {
+        font-size: 1.1rem;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
+  }
 }

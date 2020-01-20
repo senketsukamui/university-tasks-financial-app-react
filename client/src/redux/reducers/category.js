@@ -2,6 +2,7 @@ import ActionTypes from "../actions";
 import _ from "lodash";
 
 const initialState = { categories: {} };
+
 export default (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.ADD_CATEGORY:
@@ -9,11 +10,13 @@ export default (state = initialState, action) => {
         ...state,
         categories: { ...state.categories, [action.category]: [] }
       };
+
     case ActionTypes.SET_CATEGORIES:
       return {
         ...state,
-        categories: action.parsedData
+        categories: action.payload.data
       };
+
     case ActionTypes.ADD_FINANCE:
       return {
         ...state,
@@ -25,6 +28,7 @@ export default (state = initialState, action) => {
           ]
         }
       };
+
     default:
       return state;
   }
