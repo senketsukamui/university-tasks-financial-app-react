@@ -8,8 +8,7 @@ export const postRequest = (url, body = {}, headers = {}) => {
 
 export const getRequest = (url, body = {}, headers = {}) => {
   return fetch(url, {
-    method: "GET",
-    headers,
-    body: JSON.stringify(body)
+    headers
   });
 };
+ 

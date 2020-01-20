@@ -7,3 +7,39 @@ body {
   overflow: auto !important;
   position: initial !important;
 }
+
+.box {
+  position: relative;
+  border-top: 0;
+  margin-bottom: 20px;
+  width: 100%;
+  background: #fff;
+  border-radius: 4px;
+  padding: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(97, 106, 120, 0.07);
+  box-shadow: 0 5px 10px 2px rgba(148, 148, 148, 0.19) !important;
+
+  &__header {
+    color: #455a64;
+    display: block;
+    padding: 0.8rem 1.25rem;
+    position: relative;
+    border-bottom: 1px solid rgba(97, 106, 120, 0.07);
+  }
+
+  &__body {
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    padding: 1.25rem;
+    border-radius: 0 0 0 0;
+    flex: 1 1 auto;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

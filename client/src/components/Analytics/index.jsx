@@ -9,30 +9,34 @@ import {
   YAxis,
   Tooltip,
   Legend,
-  BarChart,
-  Bar,
-  PieChart,
-  Pie,
-  Sector,
-  Cell,
   LineChart,
   Line
 } from "recharts";
 const Analytics = props => {
-  const categoriesList = Object.keys(props.categories);
-  const options = categoriesList.map((p, i) => {
-    return <option key={i}>{p}</option>;
-  });
   const [formState, setFormState] = React.useState("");
+
+  const categoriesList = React.useMemo(() => Object.keys(props.categories), [
+    props.categories
+  ]);
+
+  const options = React.useMemo(
+    () =>
+      categoriesList.map((p, i) => {
+        return <option key={i}>{p}</option>;
+      }),
+    [categoriesList]
+  );
+
   const onSelectChange = event => {
     setFormState(event.target.value);
   };
-  const getCategoryData = inputCategory => {
-    return _.get(props.categories, inputCategory, []);
-  };
+
+  const getCategoryData = inputCategory =>
+    _.get(props.categories, inputCategory, []);
+
   const createCategoryChart = inputCategory => {
-    let chartData = getCategoryData(inputCategory);
-    console.log(chartData);
+    const chartData = getCategoryData(inputCategory);
+
     return (
       <LineChart
         width={500}
@@ -59,6 +63,7 @@ const Analytics = props => {
       </LineChart>
     );
   };
+
   return (
     <div className="analytics__wrapper">
       <div className="analytics__title">Categorical analytics</div>
@@ -73,7 +78,7 @@ const Analytics = props => {
               className="analytics__select-menu__select"
             >
               <option selected disabled hidden>
-                click here to choose category
+                Choose category
               </option>
               {options}
             </Input>
@@ -87,10 +92,9 @@ const Analytics = props => {
   );
 };
 
-const mapStateToProps = store => ({
-  categories: store.category.categories
-});
-
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Analytics);
+export default connect(
+  store => ({
+    categories: store.category.categories
+  }),
+  null
+)(Analytics);
