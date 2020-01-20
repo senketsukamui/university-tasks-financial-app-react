@@ -18,13 +18,17 @@ export const fetchCategories = () => dispatch =>
     });
 
 export const createCategory = data => dispatch =>
-  postRequest(apiRoutes.createCategory, data, {
-    "Content-Type": "application/json"
-  }).then(res => {
+  postRequest(
+    apiRoutes.createCategory,
+    { title: data },
+    {
+      "Content-Type": "application/json"
+    }
+  ).then(res => {
     if (res.ok) {
       dispatch({
         type: ActionTypes.ADD_CATEGORY,
-        payload: { title: data.title }
+        payload: { title: data }
       });
     } else {
       throw new Error(

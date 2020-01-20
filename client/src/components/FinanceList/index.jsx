@@ -108,7 +108,20 @@ const FinanceList = props => {
     () => dataForMainChart.sort((a, b) => new Date(a.date) - new Date(b.date)),
     [dataForMainChart]
   );
-
+  const finances = React.useMemo(
+    () =>
+      Object.keys(props.categories).reduce(
+        (acc, category) => [
+          ...acc,
+          ...props.categories[category].map(finance => ({
+            ...finance,
+            category
+          }))
+        ],
+        []
+      ),
+    [props.categories]
+  );
   const dataForPieChart = React.useMemo(
     () =>
       Object.keys(props.categories)
@@ -217,6 +230,17 @@ const FinanceList = props => {
               </ResponsiveContainer>
             </div>
           </div>
+        </div>
+      </div>
+      <div>
+        <div className="box">
+          <div className="box__header">Latest finances</div>
+        </div>
+        <div className="box__body">
+          <table className="table">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
         </div>
       </div>
     </div>
