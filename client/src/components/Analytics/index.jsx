@@ -10,7 +10,8 @@ import {
   Tooltip,
   Legend,
   LineChart,
-  Line
+  Line,
+  ResponsiveContainer
 } from "recharts";
 const Analytics = props => {
   const [formState, setFormState] = React.useState("");
@@ -40,7 +41,7 @@ const Analytics = props => {
     return (
       <LineChart
         width={500}
-        height={300}
+        height={500}
         data={chartData}
         margin={{
           top: 5,
@@ -49,7 +50,7 @@ const Analytics = props => {
           bottom: 5
         }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
+        <CartesianGrid strokeDasharray="5 5" />
         <XAxis dataKey="date" />
         <YAxis />
         <Tooltip />
@@ -66,7 +67,9 @@ const Analytics = props => {
 
   return (
     <div className="analytics__wrapper">
-      <div className="analytics__title">Categorical analytics</div>
+      <div className="box__title">
+        <div className="analytics__title">Categorical analytics</div>
+      </div>
       <div className="analytics__select-menu">
         <Form>
           <FormGroup>
@@ -84,8 +87,14 @@ const Analytics = props => {
             </Input>
           </FormGroup>
         </Form>
-        <div className="analytics__category-chart">
-          {createCategoryChart(formState)}
+        <div className="box">
+          <div className="box__body">
+            <div className="analytics__category-chart">
+              <ResponsiveContainer width={"100%"} height={400}>
+                {createCategoryChart(formState)}
+              </ResponsiveContainer>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -22,6 +22,9 @@ const Sidebar = () => {
             <div className="sidebar__section__link sidebar__section__link__first">
               <Link to="/">Dashboard</Link>
             </div>
+            <div className="sidebar__section__link sidebar__section__link__first">
+              <Link to="/analytics">Analytics</Link>
+            </div>
           </div>
 
           <div className="sidebar__section">

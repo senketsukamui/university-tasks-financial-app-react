@@ -28,7 +28,7 @@ const COLORS = [
 ];
 
 const CustomTooltipLineChart = ({ active, payload, label }) => {
-  if (active) {
+  if (active && payload) {
     return (
       <div className="custom-tooltip">
         <p className="label">{`You spent ${
@@ -41,7 +41,7 @@ const CustomTooltipLineChart = ({ active, payload, label }) => {
 };
 
 const CustomTooltipPieChart = ({ active, payload }) => {
-  if (active) {
+  if (active && payload) {
     return (
       <div className="custom-tooltip">
         <p className="label">{`You spent ${payload[0].value} on ${payload[0].payload.payload.category}`}</p>
@@ -230,17 +230,6 @@ const FinanceList = props => {
               </ResponsiveContainer>
             </div>
           </div>
-        </div>
-      </div>
-      <div>
-        <div className="box">
-          <div className="box__header">Latest finances</div>
-        </div>
-        <div className="box__body">
-          <table className="table">
-            <thead></thead>
-            <tbody></tbody>
-          </table>
         </div>
       </div>
     </div>

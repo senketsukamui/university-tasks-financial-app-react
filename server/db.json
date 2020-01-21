@@ -3,80 +3,20 @@
     "Food": [
       {
         "title": "Apple",
-        "price": "25",
-        "date": "2020-01-14"
+        "price": 30,
+        "date": "2020-01-21"
       },
       {
         "title": "Banana",
-        "price": "35",
-        "date": "2020-01-15"
-      },
-      {
-        "title": "Burger",
-        "price": "50",
-        "date": "2020-01-13"
-      },
-      {
-        "title": "Water",
-        "price": "10",
-        "date": "2020-01-14"
-      },
-      {
-        "title": "Chocolate",
-        "price": "40",
-        "date": "2020-01-12"
-      },
-      {
-        "title": "Coffee",
-        "price": "100",
-        "date": "2020-01-16"
-      },
-      {
-        "title": "Pie",
-        "price": "50",
-        "date": "2020-01-14"
-      },
-      {
-        "title": "Cola",
-        "price": "30",
-        "date": "2020-01-11"
-      },
-      {
-        "title": "Sandwich",
-        "price": "150",
-        "date": "2020-01-10"
-      },
-      {
-        "title": "Snacks",
-        "price": "30",
-        "date": "2020-01-11"
+        "price": 20,
+        "date": "2020-01-20"
       }
     ],
-    "Daily": [
+    "Clothes": [
       {
-        "title": "Clothes",
-        "price": "500",
-        "date": "2020-01-11"
-      },
-      {
-        "title": "123",
-        "price": 232,
-        "date": ""
-      },
-      {
-        "title": "Smth",
+        "title": "Coat",
         "price": 300,
         "date": "2020-01-19"
-      }
-    ],
-    "TTQ": [],
-    "TTQQ": [],
-    "TTQQQ": [],
-    "QQTT": [
-      {
-        "title": "New",
-        "price": 1000,
-        "date": "2020-01-15"
       }
     ]
   }
